@@ -23,7 +23,6 @@ const wholeify = ({ num, den }) => {
 };
 
 const simplify = ({ num, den }) => {
-  //the input guarrantees that only whole can be with negative sign
   assert(den >= 0);
 
   const cd = gcd(num % den, den);
