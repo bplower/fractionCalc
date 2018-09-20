@@ -1,4 +1,4 @@
-const R = require("ramda");
+const { compose } = require("ramda");
 const assert = require("assert");
 
 const gcd = (a, b) => {
@@ -60,19 +60,19 @@ const divide = (n1, n2) => {
 };
 
 module.exports = {
-  add: R.compose(
+  add: compose(
     simplify,
     add
   ),
-  subtract: R.compose(
+  subtract: compose(
     simplify,
     subtract
   ),
-  multiply: R.compose(
+  multiply: compose(
     simplify,
     multiply
   ),
-  divide: R.compose(
+  divide: compose(
     simplify,
     divide
   ),
