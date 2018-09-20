@@ -105,11 +105,20 @@ test("subtract", t => {
     num: 5,
     den: 4
   });
+
+  t.deepEqual(subtract({ num: -1, den: 2 }, { num: 1, den: 3 }), {
+    num: -5,
+    den: 6
+  });
 });
 
 test("multiply", t => {
   t.deepEqual(multiply({ num: 1, den: 2 }, { num: 15, den: 4 }), {
     num: 15,
+    den: 8
+  });
+  t.deepEqual(multiply({ num: -1, den: 2 }, { num: -1, den: 4 }), {
+    num: 1,
     den: 8
   });
 });

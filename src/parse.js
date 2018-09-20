@@ -2,17 +2,17 @@ const R = require("ramda");
 const assert = require("assert");
 
 const parseWholeFrac = input => {
-  const [res, whole, num, den] = R.match(/^(\d+)_(\d+)\/(\d+)$/, input);
+  const [res, whole, num, den] = R.match(/^(\-?\d+)_(\d+)\/(\d+)$/, input);
   return res && { whole, num, den };
 };
 
 const parsePartialFrac = input => {
-  const [res, num, den] = R.match(/^(\d+)\/(\d+)$/, input);
+  const [res, num, den] = R.match(/^(\-?\d+)\/(\d+)$/, input);
   return res && { whole: 0, num, den };
 };
 
 const parseWholeNumber = input => {
-  const [res, whole] = R.match(/^(\d+)$/, input);
+  const [res, whole] = R.match(/^(\-?\d+)$/, input);
   return res && { whole, num: 0, den: 1 };
 };
 

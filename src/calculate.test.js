@@ -22,5 +22,9 @@ test("calculate", t => {
 
 test("calculateStr", t => {
   t.is(calculateStr(" 1 + 1_2/4"), "2_1/2");
+  t.is(calculateStr("-1 + 2"), "1");
+  t.is(calculateStr("-1 - 1/2"), "-1_1/2");
+  t.is(calculateStr("-1 * 1/2"), "-1/2");
+
   t.throws(() => calculateStr("1/3"));
 });
