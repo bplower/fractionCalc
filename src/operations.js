@@ -17,7 +17,7 @@ const wholeify = ({ num, den }) => {
   const whole = Math.trunc(num / den);
   return {
     whole,
-    num: whole > 0 ? num % den : -1 * (num % den),
+    num: whole >= 0 ? num % den : -1 * (num % den),
     den
   };
 };

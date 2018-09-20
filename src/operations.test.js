@@ -43,6 +43,17 @@ test("normalize", t => {
       den: 3
     }
   );
+  t.deepEqual(
+    normalize({
+      whole: -1,
+      num: 0,
+      den: 1
+    }),
+    {
+      num: -1,
+      den: 1
+    }
+  );
 });
 
 test("wholeify", t => {
@@ -117,9 +128,13 @@ test("multiply", t => {
     num: 15,
     den: 8
   });
-  t.deepEqual(multiply({ num: -1, den: 2 }, { num: -1, den: 4 }), {
-    num: 1,
+  t.deepEqual(multiply({ num: -1, den: 2 }, { num: 1, den: 4 }), {
+    num: -1,
     den: 8
+  });
+  t.deepEqual(multiply({ num: -1, den: 1 }, { num: -1, den: 4 }), {
+    num: 1,
+    den: 4
   });
 });
 
