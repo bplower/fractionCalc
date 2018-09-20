@@ -1,13 +1,5 @@
-const { compose } = require("ramda");
 const readline = require("readline");
-const { parseLine, serializeNumber } = require("./parse");
-const calculate = require("./calculate");
-
-const inOut = compose(
-  serializeNumber,
-  calculate,
-  parseLine
-);
+const { calculateStr } = require("./calculate");
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -20,7 +12,7 @@ rl.prompt();
 
 rl.on("line", input => {
   try {
-    console.log(`= ${inOut(input)}`);
+    console.log(`= ${calculateStr(input)}`);
   } catch (err) {
     console.log(err.message);
   }

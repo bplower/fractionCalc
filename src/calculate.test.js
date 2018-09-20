@@ -1,5 +1,5 @@
 const { test } = require("ava");
-const calculate = require("./calculate");
+const { calculate, calculateStr } = require("./calculate");
 
 test("calculate", t => {
   t.deepEqual(
@@ -18,4 +18,9 @@ test("calculate", t => {
     }),
     { whole: 1, num: 1, den: 20 }
   );
+});
+
+test("calculateStr", t => {
+  t.is(calculateStr(" 1 + 1_2/4"), "2_1/2");
+  t.throws(() => calculateStr("1/3"));
 });

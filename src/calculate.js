@@ -1,3 +1,6 @@
+const { compose } = require("ramda");
+const { parseLine, serializeNumber } = require("./parse");
+
 const {
   add,
   subtract,
@@ -17,4 +20,13 @@ const operandToOperation = {
 const calculate = ({ n1, operand, n2 }) =>
   wholeify(operandToOperation[operand](normalize(n1), normalize(n2)));
 
-module.exports = calculate;
+const calculateStr = compose(
+  serializeNumber,
+  calculate,
+  parseLine
+);
+
+module.exports = {
+  calculateStr,
+  calculate
+};
