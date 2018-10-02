@@ -8,6 +8,7 @@ test("parseFrac", t => {
   t.deepEqual(parseFrac("-2_1/3 "), { whole: -2, num: 1, den: 3 });
   t.deepEqual(parseFrac("-3/4"), { whole: 0, num: -3, den: 4 });
   t.deepEqual(parseFrac("-1"), { whole: -1, num: 0, den: 1 });
+  t.deepEqual(parseFrac("0"), { whole: 0, num: 0, den: 1 });
 });
 
 test("parseFrac invalid input", t => {
@@ -38,4 +39,5 @@ test("serializeNumber", t => {
   t.is(serializeNumber({ whole: 0, num: -1, den: 2 }), "-1/2");
   t.is(serializeNumber({ whole: 3, num: 0, den: 1 }), "3");
   t.is(serializeNumber({ whole: -3, num: 0, den: 1 }), "-3");
+  t.is(serializeNumber({ whole: 0, num: 0, den: 1 }), "0");
 });

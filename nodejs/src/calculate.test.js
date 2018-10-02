@@ -26,6 +26,7 @@ test("calculateStr", t => {
   t.is(calculateStr("-1 - 1/2"), "-1_1/2");
   t.is(calculateStr("-2 * 1/2"), "-1");
   t.is(calculateStr("-1 * 1/2"), "-1/2");
+  t.is(calculateStr("0 * 6"), "0");
 
   t.throws(() => calculateStr("1/3"));
 });

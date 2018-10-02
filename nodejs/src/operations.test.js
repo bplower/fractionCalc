@@ -136,6 +136,10 @@ test("multiply", t => {
     num: 1,
     den: 4
   });
+  t.deepEqual(multiply({ num: 0, den: 1 }, { num: 6, den: 1 }), {
+    num: 0,
+    den: 1
+  });
 });
 
 test("divide", t => {

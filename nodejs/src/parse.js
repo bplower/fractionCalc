@@ -50,12 +50,10 @@ const serializeNumber = ({ whole, num, den }) => {
   let frac;
   if (num !== 0) {
     frac = R.join("/", [num, den]);
+    return whole ? R.join("_", [whole, frac]) : frac;
   }
 
-  if (whole !== 0) {
-    return frac ? R.join("_", [whole, frac]) : whole.toString();
-  }
-  return frac;
+  return whole.toString();
 };
 
 module.exports = {
